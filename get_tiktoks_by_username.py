@@ -4,7 +4,7 @@ import tqdm
 api = TikTokApi.get_instance()
 
 count = 3
-usernames = set(pd.read_csv('final_data.csv')['author.unique_id'].values.tolist())
+usernames = list(set(pd.read_csv('final_data.csv')['author.unique_id'].values.tolist()))[:500]
 print(len(set(usernames)))
 # print(len(authors))
 # print(pd.read_csv('final_data.csv').columns)
