@@ -4,23 +4,23 @@ import numpy as np
 import os
 x = [None, None]
 df = pd.read_csv('../videos_dataset.csv')
-cutoff_likes = np.percentile(df.likes.values.tolist(), 95)
+cutoff_likes95 = np.percentile(df.likes.values.tolist(), 95)
 # print(cutoff_likes)
-most_liked_df = df[df.likes >= int(cutoff_likes)]
+most_liked_df = df[df.likes >= int(cutoff_likes95)]
 
 x[0] = most_liked_df.videoduration.values.tolist()
 # labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
 
 # sizes = [15, 30, 45, 10]
 
-cutoff_likes = np.percentile(df.likes.values.tolist(), 75)
+cutoff_likes75 = np.percentile(df.likes.values.tolist(), 75)
 # print(cutoff_likes)
-most_liked_df = df[df.likes >= int(cutoff_likes)]
+most_liked_df = df[df.likes >= int(cutoff_likes75) and df.likes < int(cutoff_likes95)]
 
 x[1] = most_liked_df.videoduration.values.tolist()
 fig1, ax = plt.subplots(2,1)
-ax[0].hist(x[0])
-ax[0].hist(x[1])
+ax[0].hist(x[0], label='95')
+ax[0].hist(x[1], label='75')
 ax[0].set_title('Likes: 95% top videos')
 
 
