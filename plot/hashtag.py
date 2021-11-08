@@ -12,6 +12,8 @@ print(most_liked_df.shape[0])
 blank_count = [eval(hashtags) for hashtags in most_liked_df.hashtag.values.tolist()]
 for item in blank_count:
     print(item)
+blank_count = [1 for hashtags in blank_count if len(hashtags)==0]
+
 # print(most_liked_df.hashtag.values.tolist())
 print(len(blank_count))
 labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
@@ -23,7 +25,6 @@ ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
         shadow=True, startangle=90)
 ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 
-plt.show()
 filename = 'hashtag.png'
 plt.savefig(filename)
 cwd = os.getcwd()
