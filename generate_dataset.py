@@ -49,5 +49,5 @@ for entry in videos_collection.find():
     dic = simple_dict(dict(entry))
     content.append([dic[k] for k in headers])
 df = pd.DataFrame(columns=headers, data=content)
-df.to_csv('videos.csv', index=False)
+df.to_csv('videos_dataset.csv', index=False)
 
