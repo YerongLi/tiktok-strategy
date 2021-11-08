@@ -7,7 +7,8 @@ df = pd.read_csv('../videos_dataset.csv')
 cutoff_likes = np.percentile(df.likes.values.tolist(), 90)
 # print(cutoff_likes)
 most_liked_df = df[df.likes >= int(cutoff_likes)]
-blank_count = most_liked_df.has
+blank_count = [1 for hashtags in most_liked_df.hashtag.values.tolist() if not hashtags]
+print(len(blank_count))
 labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
 
 sizes = [15, 30, 45, 10]
