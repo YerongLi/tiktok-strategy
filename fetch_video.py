@@ -3,7 +3,7 @@ import pickle
 import os
 import multiprocessing
 from TikTokApi import TikTokApi
-from TikTokAPI import TikTokAPI
+# from TikTokAPI import TikTokAPI
 import tqdm
 logname = os.path.basename(__file__) + '.log'
 
