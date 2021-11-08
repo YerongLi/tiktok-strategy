@@ -10,8 +10,6 @@ most_liked_df = df[df.likes >= int(cutoff_likes)]
 print(most_liked_df.columns)
 print(most_liked_df.shape[0])
 blank_count = [eval(hashtags) for hashtags in most_liked_df.hashtag.values.tolist()]
-for item in blank_count:
-    print(item)
 blank_count = [1 for hashtags in blank_count if len(hashtags)==0]
 
 # print(most_liked_df.hashtag.values.tolist())
