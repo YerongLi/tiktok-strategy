@@ -54,7 +54,6 @@ def tokwaring(s):
 with open('users2.txt') as f:
     lines = f.readlines()
     for line in lines:
-        line = f.readline()
         context = eval(line)
         print(context['extraInfo']['secUid'])
 # usid='MS4wLjABAAAA7CyNvLiT5-wfMyn7_KhW2jJM-QZZMgvDH9UjKnlgd2pCWpyI0PUewJn-f_hLOuMD'
