@@ -42,10 +42,10 @@ sizes = [100-freq_blank, freq_blank]
 # sizes = [15, 30, 45, 10]
 explode = (0, 0.1)  # only "explode" the 2nd slice (i.e. 'Hogs')
 
-ax[1].pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
+ax[0][1].pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
         shadow=True, startangle=90)
-ax[1].axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-ax[1].set_title('Likes: 75\% top users')
+ax[0][1].axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+ax[0][1].set_title('Likes: 75\% top users')
 
 
 
@@ -65,10 +65,10 @@ sizes = [100-freq_blank, freq_blank]
 # sizes = [15, 30, 45, 10]
 explode = (0, 0.1)  # only "explode" the 2nd slice (i.e. 'Hogs')
 
-ax[2].pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
+ax[1][0].pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
         shadow=True, startangle=90)
-ax[2].axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-ax[2].set_title('Views: 95\% top users')
+ax[1][0].axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+ax[1][0].set_title('Views: 95\% top users')
 
 
 cutoff_likes = np.percentile(df['stats.playCount'].values.tolist(), 75)
@@ -87,10 +87,10 @@ sizes = [100-freq_blank, freq_blank]
 # sizes = [15, 30, 45, 10]
 explode = (0, 0.1)  # only "explode" the 2nd slice (i.e. 'Hogs')
 
-ax[2].pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
+ax[1][1].pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
         shadow=True, startangle=90)
-ax[2].axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-ax[2].set_title('Views: 75\% top users')
+ax[1][1].axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+ax[1][1].set_title('Views: 75\% top users')
 filename = 'hashtag.png'
 plt.savefig(filename)
 cwd = os.getcwd()
