@@ -2,7 +2,7 @@ import pymongo
 import pickle
 import os
 import multiprocessing
-from TikTokApi import TikTokApi
+# from TikTokApi import TikTokApi
 # from TikTokAPI import TikTokAPI
 import tqdm
 import sys
