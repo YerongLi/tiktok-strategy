@@ -47,7 +47,7 @@ def tokred(s):
 def tokwaring(s):
     return bcolors.WARNING + s + bcolors.ENDC
 verifyfp = 'verify_kvpztceo_fB1ntLiL_DNSj_4adI_AtAd_UhrNf5vVNKWK'
-api = TikTokApi.get_instance(custom_verifyFp=verifyfp,use_test_endpoint=True)
+# api = TikTokApi.get_instance(custom_verifyFp=verifyfp,use_test_endpoint=True)
 cookie = {
   "s_v_web_id": "verify_kvpygqgy_QL3BEdUe_St1p_4nCY_BAkF_ZvQWZ0Ryv9SD",
   "tt_webid": "k85EDzQ5zvrI0qA3TTJqcIKZOT"
