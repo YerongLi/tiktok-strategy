@@ -15,7 +15,7 @@ labels = 'HashTags', 'No HashTags'
 
 sizes = [freq_blank, 100 - freq_blank]
 
-labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
+# labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
 
 # sizes = [15, 30, 45, 10]
 explode = (0, 0.1)  # only "explode" the 2nd slice (i.e. 'Hogs')
