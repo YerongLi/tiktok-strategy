@@ -7,6 +7,8 @@ import multiprocessing
 import tqdm
 import sys
 import requests
+from requests.structures import CaseInsensitiveDict
+
 logname = os.path.basename(__file__) + '.log'
 
 if os.path.exists(logname):
@@ -46,28 +48,28 @@ def tokred(s):
 
 def tokwaring(s):
     return bcolors.WARNING + s + bcolors.ENDC
-verifyfp = 'verify_kvpztceo_fB1ntLiL_DNSj_4adI_AtAd_UhrNf5vVNKWK'
+# verifyfp = 'verify_kvpztceo_fB1ntLiL_DNSj_4adI_AtAd_UhrNf5vVNKWK'
 # api = TikTokApi.get_instance(custom_verifyFp=verifyfp,use_test_endpoint=True)
-cookie = {
-  "s_v_web_id": "verify_kvpygqgy_QL3BEdUe_St1p_4nCY_BAkF_ZvQWZ0Ryv9SD",
-  "tt_webid": "k85EDzQ5zvrI0qA3TTJqcIKZOT"
-}
- 
-from requests.structures import CaseInsensitiveDict
 
-usid='MS4wLjABAAAA7CyNvLiT5-wfMyn7_KhW2jJM-QZZMgvDH9UjKnlgd2pCWpyI0PUewJn-f_hLOuMD'
-url = f"https://api.tikapi.io/public/posts?secUid={usid}&count=30&cursor=0"
+with open('the-zen-of-python.txt') as f:
+    line = f.readline()
+    while line:
+        line = f.readline()
+        print(line)
+# usid='MS4wLjABAAAA7CyNvLiT5-wfMyn7_KhW2jJM-QZZMgvDH9UjKnlgd2pCWpyI0PUewJn-f_hLOuMD'
+# url = f"https://api.tikapi.io/public/posts?secUid={usid}&count=30&cursor=0"
 
-headers = CaseInsensitiveDict()
-headers["X-API-KEY"] = "2kLb6QpCsSqXFcwP8mIUlZ4Aoymo1L2v"
-headers["accept"] = "application/json"
+# headers = CaseInsensitiveDict()
+# headers["X-API-KEY"] = "2kLb6QpCsSqXFcwP8mIUlZ4Aoymo1L2v"
+# headers["accept"] = "application/json"
 
 
-resp = requests.get(url, headers=headers)
+# resp = requests.get(url, headers=headers)
 
-print(resp.status_code)
-content = resp.json()
-print(content)
+# print(resp.status_code)
+# content = resp.json()
+# print(content)
+
 sys.exit()
 # api = TikTokAPI(cookie=cookie)
 # user_obj = api.getUserByName("fcbarcelona")
