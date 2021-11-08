@@ -10,8 +10,8 @@ most_liked_df = df[df.likes >= int(cutoff_likes95)]
 
 x[0] = most_liked_df.videoduration.values.tolist()
 # labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
-pyplot.hist(x, bins, alpha=0.5, label='x')
-pyplot.hist(y, bins, alpha=0.5, label='y')
+# pyplot.hist(x, bins, alpha=0.5, label='x')
+# pyplot.hist(y, bins, alpha=0.5, label='y')
 
 cutoff_likes75 = np.percentile(df.likes.values.tolist(), 75)
 # print(cutoff_likes)
