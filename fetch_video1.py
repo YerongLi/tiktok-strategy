@@ -66,7 +66,8 @@ headers["accept"] = "application/json"
 resp = requests.get(url, headers=headers)
 
 print(resp.status_code)
-print(resp)
+content = resp.json()
+print(content)
 sys.exit()
 # api = TikTokAPI(cookie=cookie)
 # user_obj = api.getUserByName("fcbarcelona")
