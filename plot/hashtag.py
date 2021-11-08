@@ -4,7 +4,7 @@ import numpy as np
 import os
 
 df = pd.read_csv('../videos_dataset.csv')
-cutoff_likes = np.percentile(df.likes.values.tolist(), 90)
+cutoff_likes = np.percentile(df.likes.values.tolist(), 95)
 # print(cutoff_likes)
 most_liked_df = df[df.likes >= int(cutoff_likes)]
 blank_count = [eval(hashtags) for hashtags in most_liked_df.hashtag.values.tolist()]
