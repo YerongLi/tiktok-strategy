@@ -24,11 +24,11 @@ def simple_dict(tiktok_dict):
   to_return["stitchEnabled"] = tiktok_dict['stitchEnabled']
   to_return["shareEnabled"] = tiktok_dict['shareEnabled']
   if 'textExtra' in tiktok_dict:
-      to_return['hashtag'] = [{k : tag[k]} for k in ('hashtagName', 'hashtagId', 'type', 'subType')for tag in tiktok['textExtra'] if 'hashtagName' in tag and len(tag['hashtagName'])>0]
+      to_return['hashtag'] = [{k : tag[k]} for k in ('hashtagName', 'hashtagId', 'type', 'subType')for tag in tiktok_dict['textExtra'] if 'hashtagName' in tag and len(tag['hashtagName'])>0]
   else:
       to_return['hashtag'] = []
   if 'challenges' in tiktok_dict:
-      to_return['challenges'] = [{k : challenge[k]} for k in ('id', 'title', 'desc', 'isCommerce')for challenge in tiktok['challenges']]
+      to_return['challenges'] = [{k : challenge[k]} for k in ('id', 'title', 'desc', 'isCommerce')for challenge in tiktok_dict['challenges']]
   else:
       to_return['challenges'] = []
   return to_return
