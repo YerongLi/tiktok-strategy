@@ -23,4 +23,4 @@ plt.show()
 filename = 'hashtag.png'
 plt.savefig(filename)
 cwd = os.getcwd()
-print(f'scp t0:{cwd}/{filename} .')
+print(f'scp t0:{cwd}/{filename} .; open {filename}')
