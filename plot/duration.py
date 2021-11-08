@@ -27,6 +27,7 @@ fig1, ax = plt.subplots(2,1)
 ax[0].hist(x[0], alpha=0.3, label='95%')
 ax[0].hist(x[1], alpha=0.3, label='75%')
 ax[0].set_title('Likes : top videos')
+plt.legend()
 
 
 
