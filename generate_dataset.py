@@ -45,7 +45,6 @@ headers = ['author.uniqueId', 'author.id',
 
 content = [] 
 for entry in videos_collection.find():
-    print(entry)
-    with simple_dict(dict(entry)) as dic:
-        content.append([dic[k] for k in header])
+    dic = simple_dict(dict(entry))
+    content.append([dic[k] for k in header])
 
