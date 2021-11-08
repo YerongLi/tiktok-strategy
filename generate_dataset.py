@@ -1,5 +1,6 @@
 import pymongo
 import tqdm
+import pandas as pd
 client = pymongo.MongoClient(host='localhost', port=27017)
 db = client.tiktok
 
@@ -47,4 +48,6 @@ content = []
 for entry in videos_collection.find():
     dic = simple_dict(dict(entry))
     content.append([dic[k] for k in headers])
+df = pd.DataFrame(columns=headers, content)
+df.to_csv('videos.csv')
 
