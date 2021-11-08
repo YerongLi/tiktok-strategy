@@ -5,6 +5,7 @@ import multiprocessing
 from TikTokApi import TikTokApi
 # from TikTokAPI import TikTokAPI
 import tqdm
+import sys
 import requests
 logname = os.path.basename(__file__) + '.log'
 
@@ -65,6 +66,8 @@ headers["accept"] = "application/json"
 resp = requests.get(url, headers=headers)
 
 print(resp.status_code)
+print(resp)
+sys.exit()
 # api = TikTokAPI(cookie=cookie)
 # user_obj = api.getUserByName("fcbarcelona")
 # sys.exit()
