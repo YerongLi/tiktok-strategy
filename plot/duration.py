@@ -29,7 +29,8 @@ ax[0].hist(x[1], alpha=0.3, label='75%')
 ax[0].set_title('Likes : top videos')
 ax[0].legend()
 
-
+del x
+x = [None, None]
 
 
 cutoff_likes95 = np.percentile(df['stats.playCount'].values.tolist(), 95)
