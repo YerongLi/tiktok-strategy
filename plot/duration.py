@@ -88,7 +88,7 @@ ax[0].set_title('Likes: 95% top videos')
 #         shadow=True, startangle=90)
 # ax[1][1].axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 # ax[1][1].set_title('Views: 75% top videos')
-# filename = 'hashtag.png'
-# plt.savefig(filename)
-# cwd = os.getcwd()
-# print(f'scp t0:{cwd}/{filename} .; open {filename}')
+filename = 'duration.png'
+plt.savefig(filename)
+cwd = os.getcwd()
+print(f'scp t0:{cwd}/{filename} .; open {filename}')
