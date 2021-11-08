@@ -45,7 +45,7 @@ with open('videos.txt') as f:
             if context['id'] in stored: continue
             context['_id'] = context.pop('id')
             stored.add(context['_id'])
-            items.append(context['_id'])
+            items.append(context)
         except KeyboardInterrupt:
             if items:
                 videos_collection.insert_many(items)
