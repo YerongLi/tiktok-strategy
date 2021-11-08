@@ -47,7 +47,9 @@ headers = ['author.uniqueId', 'author.id',
         'stitchEnabled', 
         'shareEnabled',
         'hashtag',
-        'challenges']
+        'challenges',
+        'music',
+        ]
 
 content = [] 
 for entry in videos_collection.find():
