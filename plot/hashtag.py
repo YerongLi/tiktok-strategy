@@ -19,10 +19,12 @@ sizes = [100-freq_blank, freq_blank]
 
 # sizes = [15, 30, 45, 10]
 explode = (0, 0.1)  # only "explode" the 2nd slice (i.e. 'Hogs')
-fig1, ax = plt.subplots(1,2)
+fig1, ax = plt.subplots(2,2)
 ax[0].pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
         shadow=True, startangle=90)
 ax[0].axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+ax[0].set_title('Likes: 95\% top users')
+
 
 cutoff_likes = np.percentile(df.likes.values.tolist(), 75)
 # print(cutoff_likes)
@@ -43,7 +45,52 @@ explode = (0, 0.1)  # only "explode" the 2nd slice (i.e. 'Hogs')
 ax[1].pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
         shadow=True, startangle=90)
 ax[1].axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-ax[1].set_title('75\\% users')
+ax[1].set_title('Likes: 75\% top users')
+
+
+
+cutoff_likes = np.percentile(df['stats.playCount'].values.tolist(), 95)
+# print(cutoff_likes)
+most_liked_df = df[df['stats.playCount'] >= int(cutoff_likes)]
+blank_count = [eval(hashtags) for hashtags in most_liked_df.hashtag.values.tolist()]
+blank_count = [1 for hashtags in blank_count if len(hashtags)==0]
+
+freq_blank = len(blank_count)/ most_liked_df.shape[0] * 100
+labels = 'HashTags', 'No HashTags'
+
+sizes = [100-freq_blank, freq_blank]
+
+# labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
+
+# sizes = [15, 30, 45, 10]
+explode = (0, 0.1)  # only "explode" the 2nd slice (i.e. 'Hogs')
+
+ax[2].pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
+        shadow=True, startangle=90)
+ax[2].axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+ax[2].set_title('Views: 95\% top users')
+
+
+cutoff_likes = np.percentile(df['stats.playCount'].values.tolist(), 75)
+# print(cutoff_likes)
+most_liked_df = df[df['stats.playCount'] >= int(cutoff_likes)]
+blank_count = [eval(hashtags) for hashtags in most_liked_df.hashtag.values.tolist()]
+blank_count = [1 for hashtags in blank_count if len(hashtags)==0]
+
+freq_blank = len(blank_count)/ most_liked_df.shape[0] * 100
+labels = 'HashTags', 'No HashTags'
+
+sizes = [100-freq_blank, freq_blank]
+
+# labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
+
+# sizes = [15, 30, 45, 10]
+explode = (0, 0.1)  # only "explode" the 2nd slice (i.e. 'Hogs')
+
+ax[2].pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
+        shadow=True, startangle=90)
+ax[2].axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+ax[2].set_title('Views: 75\% top users')
 filename = 'hashtag.png'
 plt.savefig(filename)
 cwd = os.getcwd()
