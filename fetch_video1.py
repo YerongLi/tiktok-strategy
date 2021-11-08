@@ -57,7 +57,7 @@ with open('users2.txt') as f:
         context = eval(line)
         secUids.append(context['extraInfo']['secUid'])
 secUids = secUids[:1]
-for usid in secUids:
+# for usid in secUids:
     # url = f"https://api.tikapi.io/public/posts?secUid={usid}&count=30&cursor=0"
 
     # headers = CaseInsensitiveDict()
