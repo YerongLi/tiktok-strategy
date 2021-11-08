@@ -50,12 +50,13 @@ def tokwaring(s):
     return bcolors.WARNING + s + bcolors.ENDC
 # verifyfp = 'verify_kvpztceo_fB1ntLiL_DNSj_4adI_AtAd_UhrNf5vVNKWK'
 # api = TikTokApi.get_instance(custom_verifyFp=verifyfp,use_test_endpoint=True)
-
+secUids = []
 with open('users2.txt') as f:
     lines = f.readlines()
     for line in lines:
         context = eval(line)
-        print(context['extraInfo']['secUid'])
+        secUids.append(context['extraInfo']['secUid'])
+
 # usid='MS4wLjABAAAA7CyNvLiT5-wfMyn7_KhW2jJM-QZZMgvDH9UjKnlgd2pCWpyI0PUewJn-f_hLOuMD'
 # url = f"https://api.tikapi.io/public/posts?secUid={usid}&count=30&cursor=0"
 
