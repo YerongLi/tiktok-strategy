@@ -13,7 +13,7 @@ blank_count = [1 for hashtags in blank_count if len(hashtags)==0]
 freq_blank = len(blank_count)/ most_liked_df.shape[0] * 100
 labels = 'HashTags', 'No HashTags'
 
-sizes = [freq_blank, 100 - freq_blank]
+sizes = [100-freq_blank, freq_blank]
 
 # labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
 
