@@ -33,5 +33,18 @@ def simple_dict(tiktok_dict):
       to_return['challenges'] = []
   return to_return
 
+headers = ['author.uniqueId', 'author.id', 
+        'id', 'desc', 'createTime', 
+        'videoduration', 'link', 
+        'likes', 'stats.shareCount', 
+        'stats.commentCount', 
+        'stats.playCount', 
+        'duetEnabled',
+        'stitchEnabled', 
+        'shareEnabled']
+
+content = [] 
 for entry in videos_collection.find():
-    print(simple_dict(entry))
+    with simple_dict(entry) as dic:
+        content.append([dic[k] for k in header])
+
