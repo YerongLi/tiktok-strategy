@@ -9,7 +9,9 @@ cutoff_likes = np.percentile(df.likes.values.tolist(), 2)
 most_liked_df = df[df.likes >= int(cutoff_likes)]
 print(most_liked_df.columns)
 print(most_liked_df.shape[0])
-blank_count = [1 for hashtags in most_liked_df.hashtag.values.tolist() if len(eval(hashtags))==1]
+blank_count = [eval(hashtags) for hashtags in most_liked_df.hashtag.values.tolist()]
+for item in blank_count:
+    print(item)
 # print(most_liked_df.hashtag.values.tolist())
 print(len(blank_count))
 labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
