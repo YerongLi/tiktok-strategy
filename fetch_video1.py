@@ -56,6 +56,16 @@ with open('users2.txt') as f:
     for line in lines:
         context = eval(line)
         secUids.append(context['extraInfo']['secUid'])
+secUids = secUids[:1]
+for usid in secUids:
+    url = f"https://api.tikapi.io/public/posts?secUid={usid}&count=30&cursor=0"
+
+    headers = CaseInsensitiveDict()
+    headers["X-API-KEY"] = "2kLb6QpCsSqXFcwP8mIUlZ4Aoymo1L2v"
+    headers["accept"] = "application/json"
+    resp = requests.get(url, headers=headers)
+    content = resp.json()
+    print(content)
 
 # usid='MS4wLjABAAAA7CyNvLiT5-wfMyn7_KhW2jJM-QZZMgvDH9UjKnlgd2pCWpyI0PUewJn-f_hLOuMD'
 # url = f"https://api.tikapi.io/public/posts?secUid={usid}&count=30&cursor=0"
@@ -65,7 +75,6 @@ with open('users2.txt') as f:
 # headers["accept"] = "application/json"
 
 
-# resp = requests.get(url, headers=headers)
 
 # print(resp.status_code)
 # content = resp.json()
