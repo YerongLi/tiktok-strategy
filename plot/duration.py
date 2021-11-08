@@ -17,9 +17,10 @@ cutoff_likes = np.percentile(df.likes.values.tolist(), 75)
 # print(cutoff_likes)
 most_liked_df = df[df.likes >= int(cutoff_likes)]
 
-y = most_liked_df.duration.values.tolist()
+x[1] = most_liked_df.videoduration.values.tolist()
 fig1, ax = plt.subplots(2,1)
 ax[0].histogram(x[0])
+ax[0].histogram(x[1])
 ax[0].set_title('Likes: 95% top videos')
 
 
