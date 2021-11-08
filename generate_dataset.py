@@ -33,6 +33,8 @@ def simple_dict(tiktok_dict):
       to_return['challenges'] = [{k : challenge[k] for k in ('id', 'title', 'desc', 'isCommerce')} for challenge in tiktok_dict['challenges']]
   else:
       to_return['challenges'] = []
+  if 'music' in tiktok_dict:
+      to_return['music.title'] = tiktok_dict['music']['title']
   return to_return
 
 headers = ['author.uniqueId', 'author.id', 
