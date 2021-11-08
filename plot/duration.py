@@ -41,7 +41,6 @@ x[0] = most_liked_df.videoduration.values.tolist()
 # labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
 # pyplot.hist(x, bins, alpha=0.5, label='x')
 # pyplot.hist(y, bins, alpha=0.5, label='y')
-bins = np.linspace(0, 10000, 10000)
 cutoff_likes75 = np.percentile(df['stats.playCount'].values.tolist(), 75)
 # print(cutoff_likes)
 most_liked_df = df[df['stats.playCount'] >= int(cutoff_likes75)]
