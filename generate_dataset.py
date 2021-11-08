@@ -21,7 +21,8 @@ def simple_dict(tiktok_dict):
   to_return['stats.shareCount'] = tiktok_dict['stats']['shareCount']
   to_return['stats.commentCount'] = tiktok_dict['stats']['commentCount']
   to_return['stats.playCount'] = tiktok_dict['stats']['playCount']
-  to_return["duetEnabled"] = tiktok_dict['duetEnabled']
+  to_return['duetEnabled'] = tiktok_dict['duetEnabled']
+  to_return['duetFromId'] = tiktok_dict['duetInfo']['duetFromId']
   to_return["stitchEnabled"] = tiktok_dict['stitchEnabled']
   to_return["shareEnabled"] = tiktok_dict['shareEnabled']
   if 'textExtra' in tiktok_dict:
@@ -42,7 +43,9 @@ headers = ['author.uniqueId', 'author.id',
         'stats.playCount', 
         'duetEnabled',
         'stitchEnabled', 
-        'shareEnabled']
+        'shareEnabled',
+        'hashtag',
+        'challenges']
 
 content = [] 
 for entry in videos_collection.find():
