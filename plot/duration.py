@@ -5,7 +5,7 @@ import os
 import random
 x = [None, None, None]
 df = pd.read_csv('../videos_dataset.csv')
-cutoff_likes95 = np.percentile(df.likes.values.tolist(), 95)
+cutoff_likes95 = np.percentile(df.likes.videoduration.tolist(), 95)
 # print(cutoff_likes)
 most_liked_df = df[df.likes >= int(cutoff_likes95)]
 
