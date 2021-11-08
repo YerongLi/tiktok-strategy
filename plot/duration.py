@@ -49,7 +49,6 @@ most_liked_df = most_liked_df[most_liked_df['stats.playCount'] < int(cutoff_like
 x[1] = most_liked_df.videoduration.values.tolist()
 
 
-fig1, ax = plt.subplots(2,1)
 ax[1].hist(x[0], alpha=0.3, label='95%')
 ax[1].hist(x[1], alpha=0.3, label='75%')
 ax[1].set_title('Likes : top videos')
