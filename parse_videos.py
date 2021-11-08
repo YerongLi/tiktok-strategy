@@ -50,6 +50,6 @@ with open('videos.txt') as f:
             if items:
                 videos_collection.insert_many(items)
 
-print(items)
+# print(items)
 if items:
     videos_collection.insert_many(items)
