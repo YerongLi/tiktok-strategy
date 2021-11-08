@@ -8,7 +8,6 @@ import tqdm
 import sys
 import requests
 from requests.structures import CaseInsensitiveDict
-import json
 
 logname = os.path.basename(__file__) + '.log'
 
@@ -56,7 +55,7 @@ with open('users2.txt') as f:
     line = f.readline()
     while line:
         line = f.readline()
-        context = json.load(line)
+        context = eval(line)
         print(context['extraInfo']['secUid'])
 # usid='MS4wLjABAAAA7CyNvLiT5-wfMyn7_KhW2jJM-QZZMgvDH9UjKnlgd2pCWpyI0PUewJn-f_hLOuMD'
 # url = f"https://api.tikapi.io/public/posts?secUid={usid}&count=30&cursor=0"
