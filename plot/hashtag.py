@@ -43,6 +43,7 @@ explode = (0, 0.1)  # only "explode" the 2nd slice (i.e. 'Hogs')
 ax[1].pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
         shadow=True, startangle=90)
 ax[1].axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+ax[1].set_title('75\\% users')
 filename = 'hashtag.png'
 plt.savefig(filename)
 cwd = os.getcwd()
