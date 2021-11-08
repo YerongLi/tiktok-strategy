@@ -30,8 +30,9 @@ ax[0].set_title('Likes : top videos')
 ax[0].legend()
 
 del x
-x = [None, None]
 
+
+x = [None, None]
 
 cutoff_likes95 = np.percentile(df['stats.playCount'].values.tolist(), 95)
 # print(cutoff_likes)
