@@ -20,10 +20,10 @@ sizes = [100-freq_blank, freq_blank]
 # sizes = [15, 30, 45, 10]
 explode = (0, 0.1)  # only "explode" the 2nd slice (i.e. 'Hogs')
 fig1, ax = plt.subplots(2,2)
-ax[0].pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
+ax[0][0].pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
         shadow=True, startangle=90)
-ax[0].axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-ax[0].set_title('Likes: 95\% top users')
+ax[0][0].axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+ax[0][0].set_title('Likes: 95\% top users')
 
 
 cutoff_likes = np.percentile(df.likes.values.tolist(), 75)
