@@ -51,7 +51,7 @@ x[1] = most_liked_df.videoduration.values.tolist()
 
 ax[1].hist(x[0], alpha=0.3, label='95%')
 ax[1].hist(x[1], alpha=0.3, label='75%')
-ax[1].set_title('Likes : top videos')
+ax[1].set_title('Views : top videos', loc='bottom')
 
 # cutoff_likes = np.percentile(df.likes.values.tolist(), 75)
 # # print(cutoff_likes)
@@ -119,6 +119,7 @@ ax[1].set_title('Likes : top videos')
 # ax[1][1].axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 # ax[1][1].set_title('Views: 75% top videos')
 filename = 'duration.png'
+plt.legend()
 plt.savefig(filename)
 cwd = os.getcwd()
 print(f'scp t0:{cwd}/{filename} .; open {filename}')
