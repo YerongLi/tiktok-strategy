@@ -37,7 +37,7 @@ items = list()
 cursor = videos_collection.find()
 stored = set([entry['_id'] for entry in cursor])
 
-with open('videos3.txt') as f:
+with open('videos2.txt') as f:
     lines = f.readlines()
     for line in tqdm.tqdm(lines):
         try:
