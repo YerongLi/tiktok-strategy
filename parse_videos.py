@@ -1,5 +1,5 @@
 import multiprocessing
-manager = multiprocessing.manager()
+manager = multiprocessing.Manager()
 to_save = manager.list()
 def simple_dict(tiktok_dict):
   to_return = {}
@@ -17,11 +17,11 @@ def simple_dict(tiktok_dict):
   to_return["duetEnabled"] = tiktok['duetEnabled']
   to_return["stitchEnabled"] = tiktok['stitchEnabled']
   to_return["shareEnabled"] = tiktok['shareEnabled']
-  if 'textExtra' in tiktok:
+  if 'textExtra' in tiktok_dict:
       to_return['hashtag'] = [{k : tag[k]} for k in ('hashtagName', 'hashtagId', 'type', 'subType')for tag in tiktok['textExtra'] if 'hashtagName' in tag and len(tag['hashtagName'])>0]
   else:
       to_return['hashtag'] = []
-  if 'challenges' in tiktok:
+  if 'challenges' in tiktok_dict:
       to_return['challenges'] = [{k : challenge[k]} for k in ('id', 'title', 'desc', 'isCommerce')for challenge in tiktok['challenges']]
   else:
       to_return['challenges'] = []
