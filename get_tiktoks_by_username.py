@@ -4,6 +4,8 @@ import tqdm
 import pickle
 api = TikTokApi.get_instance()
 
+db = client.tiktok
+
 count = 3
 usernames = list(set(pd.read_csv('final_data.csv')['author.unique_id'].values.tolist()))[:2000]
 print(len(set(usernames)))

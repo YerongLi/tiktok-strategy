@@ -1,3 +1,9 @@
+import pymongo
+import tqdm
+client = pymongo.MongoClient(host='localhost', port=27017)
+db = client.tiktok
+
+videos_collection = db.videos
 import multiprocessing
 manager = multiprocessing.Manager()
 to_save = manager.list()
@@ -14,9 +20,9 @@ def simple_dict(tiktok_dict):
   to_return['stats.shareCount'] = tiktok_dict['stats']['shareCount']
   to_return['stats.commentCount'] = tiktok_dict['stats']['commentCount']
   to_return['stats.playCount'] = tiktok_dict['stats']['playCount']
-  to_return["duetEnabled"] = tiktok['duetEnabled']
-  to_return["stitchEnabled"] = tiktok['stitchEnabled']
-  to_return["shareEnabled"] = tiktok['shareEnabled']
+  to_return["duetEnabled"] = tiktok_dict['duetEnabled']
+  to_return["stitchEnabled"] = tiktok_dict['stitchEnabled']
+  to_return["shareEnabled"] = tiktok_dict['shareEnabled']
   if 'textExtra' in tiktok_dict:
       to_return['hashtag'] = [{k : tag[k]} for k in ('hashtagName', 'hashtagId', 'type', 'subType')for tag in tiktok['textExtra'] if 'hashtagName' in tag and len(tag['hashtagName'])>0]
   else:
@@ -30,8 +36,8 @@ def simple_dict(tiktok_dict):
 items = list()
 with open('videos.txt') as f:
     lines = f.readlines()
-    for line in lines:
+    for line in tqdm.tqdm(lines):
         context = eval(line)
+        context['_id'] = context.pop('id')
         items.append(context)
-        break
-print(items)
+# print(items)
