@@ -10,11 +10,11 @@ music = df['music.title'].tolist()
 
 cutoff_likes = np.percentile(df.likes.values.tolist(), 95)
 most_liked_df = df[df.likes >= int(cutoff_likes)]
-blank_count = [eval(hashtags) for hashtags in most_liked_df['music.title'].values.tolist()]
+blank_count = [hashtags for hashtags in most_liked_df['music.title'].values.tolist()]
 blank_count = [1 for hashtags in blank_count if hashtags == 'original sound']
 
 freq_blank = len(blank_count)/ most_liked_df.shape[0] * 100
-labels = 'HashTags', 'No HashTags'
+labels = 'Famous', 'Original'
 
 sizes = [100-freq_blank, freq_blank]
 
@@ -32,11 +32,11 @@ ax[0][0].set_title('Likes: 95% top videos')
 cutoff_likes = np.percentile(df.likes.values.tolist(), 75)
 # print(cutoff_likes)
 most_liked_df = df[df.likes >= int(cutoff_likes)]
-blank_count = [eval(hashtags) for hashtags in most_liked_df['music.title'].values.tolist()]
+blank_count = [hashtags for hashtags in most_liked_df['music.title'].values.tolist()]
 blank_count = [1 for hashtags in blank_count if hashtags == 'original sound']
 
 freq_blank = len(blank_count)/ most_liked_df.shape[0] * 100
-labels = 'HashTags', 'No HashTags'
+labels = 'Famous', 'Original'
 
 sizes = [100-freq_blank, freq_blank]
 
