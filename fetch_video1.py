@@ -52,8 +52,8 @@ def tokwaring(s):
 # api = TikTokApi.get_instance(custom_verifyFp=verifyfp,use_test_endpoint=True)
 
 with open('users2.txt') as f:
-    line = f.readline()
-    while line:
+    lines = f.readlines()
+    for line in lines:
         line = f.readline()
         context = eval(line)
         print(context['extraInfo']['secUid'])
