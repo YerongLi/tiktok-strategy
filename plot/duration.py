@@ -2,6 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 import os
+import random
 x = [None, None]
 df = pd.read_csv('../videos_dataset.csv')
 cutoff_likes95 = np.percentile(df.likes.values.tolist(), 95)
@@ -12,12 +13,13 @@ x[0] = most_liked_df.videoduration.values.tolist()
 # labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
 # pyplot.hist(x, bins, alpha=0.5, label='x')
 # pyplot.hist(y, bins, alpha=0.5, label='y')
-
+bins = np.linspace(-10, 10, 100)
 cutoff_likes75 = np.percentile(df.likes.values.tolist(), 75)
 # print(cutoff_likes)
 most_liked_df = df[df.likes >= int(cutoff_likes75)]
 most_liked_df = most_liked_df[most_liked_df.likes < int(cutoff_likes95)]
-
+x[0] = [random.gauss(3,1) for _ in range(400)]
+x[1] = [random.gauss(4,2) for _ in range(400)]
 x[1] = most_liked_df.videoduration.values.tolist()
 
 fig1, ax = plt.subplots(2,1)
