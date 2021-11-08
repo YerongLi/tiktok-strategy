@@ -22,7 +22,7 @@ x[1] = most_liked_df.videoduration.values.tolist()
 
 fig1, ax = plt.subplots(2,1)
 ax[0].hist(x[0], label='95')
-ax[0].hist(x[1], label='75')
+ax[1].hist(x[1], label='75')
 ax[0].set_title('Likes: 95% top videos')
 
 
