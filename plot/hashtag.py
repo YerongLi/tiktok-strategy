@@ -20,5 +20,7 @@ ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
 ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 
 plt.show()
+filename = 'hashtag.png'
+plt.savefig(filename)
 cwd = os.getcwd()
-print(cwd)
+print(f'scp t0:{cwd}/{filename} .')
