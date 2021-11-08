@@ -15,7 +15,9 @@ x[0] = most_liked_df.videoduration.values.tolist()
 
 cutoff_likes75 = np.percentile(df.likes.values.tolist(), 75)
 # print(cutoff_likes)
-most_liked_df = df[df.likes >= int(cutoff_likes75) and df.likes < int(cutoff_likes95)]
+most_liked_df = df[df.likes >= int(cutoff_likes75)]
+most_liked_df = most_liked_df[most_liked_df.likes < int(cutoff_likes95)]
+
 
 x[1] = most_liked_df.videoduration.values.tolist()
 fig1, ax = plt.subplots(2,1)
