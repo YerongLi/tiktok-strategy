@@ -48,7 +48,7 @@ headers = ['author.uniqueId', 'author.id',
         'shareEnabled',
         'hashtag',
         'challenges',
-        'music',
+        'music.title',
         ]
 
 content = [] 

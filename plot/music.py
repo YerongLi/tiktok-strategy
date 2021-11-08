@@ -6,5 +6,5 @@ import random
 bins = np.linspace(0, 180, 20)
 x = [None, None, None]
 df = pd.read_csv('../videos_dataset.csv')
-music = df.music.tolist()
+music = df['music.title'].tolist()
 print(music)
