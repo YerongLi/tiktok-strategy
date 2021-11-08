@@ -47,7 +47,9 @@ with open('videos.txt') as f:
             stored.add(context['_id'])
             items.append(context['_id'])
         except KeyboardInterrupt:
-            videos_collection.insert_many(items)
+            if items:
+                videos_collection.insert_many(items)
 
 # print(items)
-videos_collection.insert_many(items)
+if items:
+    videos_collection.insert_many(items)
