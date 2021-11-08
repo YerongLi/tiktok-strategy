@@ -20,7 +20,7 @@ most_liked_df = df[df.likes >= int(cutoff_likes75)]
 most_liked_df = most_liked_df[most_liked_df.likes < int(cutoff_likes95)]
 x[0] = [random.gauss(3,1) for _ in range(400)]
 x[1] = [random.gauss(4,2) for _ in range(400)]
-x[1] = most_liked_df.videoduration.values.tolist()
+# x[1] = most_liked_df.videoduration.values.tolist()
 
 fig1, ax = plt.subplots(2,1)
 ax[0].hist(x[0], label='95')
