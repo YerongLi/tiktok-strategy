@@ -34,10 +34,15 @@ def simple_dict(tiktok_dict):
   return to_return
 
 items = list()
+cursor = videos_collection.find()
+stored = set([entry['_id'] for entry in cursor])
+
 with open('videos.txt') as f:
     lines = f.readlines()
     for line in tqdm.tqdm(lines):
         context = eval(line)
+        if context['id'] in stored: continue
         context['_id'] = context.pop('id')
         items.append(context)
 # print(items)
+videos_collection.insert_many(items)
