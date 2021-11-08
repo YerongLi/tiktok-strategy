@@ -11,10 +11,10 @@ blank_count = [eval(hashtags) for hashtags in most_liked_df.hashtag.values.tolis
 blank_count = [1 for hashtags in blank_count if len(hashtags)==0]
 
 # print(most_liked_df.hashtag.values.tolist())
-freq_blank = len(blank_count)/ most_liked_df.shape[0] * 100
-labels = 'HashTags', 'No HashTags'
+# freq_blank = len(blank_count))
+labels = 'Frogs', 'Hogs', 'Dogs', 'Logs'
 
-sizes = [freq_blank, 100 - freq_blank]
+sizes = [15, 30, 45, 10]
 explode = (0, 0.1, 0, 0)  # only "explode" the 2nd slice (i.e. 'Hogs')
 fig1, ax1 = plt.subplots()
 ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
