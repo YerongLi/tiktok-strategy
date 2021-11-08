@@ -40,9 +40,14 @@ stored = set([entry['_id'] for entry in cursor])
 with open('videos.txt') as f:
     lines = f.readlines()
     for line in tqdm.tqdm(lines):
-        context = eval(line)
-        if context['id'] in stored: continue
-        context['_id'] = context.pop('id')
-        items.append(context)
+        try:
+            context = eval(line)
+            if context['id'] in stored: continue
+            context['_id'] = context.pop('id')
+            stored.add(context['_id'])
+            items.append(context)
+        except KeyboardInterrupt:
+            videos_collection.insert_many(items)
+
 # print(items)
 videos_collection.insert_many(items)
