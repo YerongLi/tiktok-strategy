@@ -23,8 +23,8 @@ x[1] = [random.gauss(4,2) for _ in range(400)]
 # x[1] = most_liked_df.videoduration.values.tolist()
 
 fig1, ax = plt.subplots(2,1)
-ax[0].hist(x[0], bins, label='95')
-ax[0].hist(x[1], bins, label='75')
+ax[0].hist(x[0], bins, alpha=0.3, label='95')
+ax[0].hist(x[1], bins, alpha=0.3, label='75')
 ax[0].set_title('Likes: 95% top videos')
 
 
