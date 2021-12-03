@@ -4,6 +4,7 @@ a = list(set(df.id.values.tolist()))
 b = list(set(df.duetFromId.values.tolist()))
 print(len(a))
 print(len(b))
+print(len(a.union(b)))
 print(a[0])
 for i in b:
     if i != 0:
