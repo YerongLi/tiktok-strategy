@@ -3,7 +3,7 @@ df = pd.read_csv('videos_dataset.csv')
 authors = sorted(set(df['author.uniqueId'].values.tolist()))
 videos = sorted(set(df.id.values.tolist()))
 
-with open('tiktok_dat/node.dat', 'w') as f:
+with open('tiktok_data/node.dat', 'w') as f:
     for author in authors:
         f.write(f'{author} a\n')
     for video in videos:
