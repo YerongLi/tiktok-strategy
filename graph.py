@@ -6,7 +6,7 @@ a = set(df.id.values.tolist())
 b = set(df.duetFromId.values.tolist())
 
 logging.basicConfig(level=logging.DEBUG)
-logging.debug(f'There are {len(a)} vidoes and {len(b)} dueted videos : {len(len(a.union(b)))} videos in total.')
+logging.debug(f'There are {len(a)} vidoes and {len(b)} dueted videos : {len(a.union(b))} videos in total.')
 
 for i in b:
     if i != 0:
