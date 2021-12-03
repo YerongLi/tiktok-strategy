@@ -11,7 +11,7 @@ with open('tiktok_data/node.dat', 'w') as f:
         f.write(f'{author} a\n')
     for video in sorted(set(df.id.values.tolist())):
         f.write(f'{video} v\n')
-    for music in sorted(set(df['music.title'].values.asstype(str).tolist()), key=len):
+    for music in sorted(set(df['music.title'].values.astype(str).tolist()), key=len):
         f.write(f'{music} m\n')
 
 with open('tiktok_data/link.dat', 'w') as f:
