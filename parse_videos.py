@@ -45,7 +45,7 @@ def store():
     # if items:
     #     videos_collection.insert_many(items)
     pass
-with open(f'{args.file}.txt') as f:
+with open(f'{args.file}') as f:
     lines = f.readlines()
     for line in tqdm.tqdm(lines):
         try:
