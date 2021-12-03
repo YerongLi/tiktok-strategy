@@ -37,8 +37,11 @@ def simple_dict(tiktok_dict):
 items = list()
 cursor = videos_collection.find()
 stored = set([entry['_id'] for entry in cursor])
-
-with open('videos.txt') as f:
+def store():
+    # if items:
+    #     videos_collection.insert_many(items)
+    pass
+with open('videos2.txt') as f:
     lines = f.readlines()
     for line in tqdm.tqdm(lines):
         try:
@@ -47,10 +50,11 @@ with open('videos.txt') as f:
             context['_id'] = context.pop('id')
             stored.add(context['_id'])
             items.append(context)
+            print(context['duetFromId'])
         except KeyboardInterrupt:
-            if items:
-                videos_collection.insert_many(items)
+            store()
 
 # print(items)
 #if items:
 #    videos_collection.insert_many(items)
+store
