@@ -1,7 +1,7 @@
 import pandas as pd
 df = pd.read_csv('videos_dataset.csv')
-a = list(set(df.id.values.tolist())))
-b = list(set(df.duetFromId.values.tolist()))))
+a = list(set(df.id.values.tolist()))
+b = list(set(df.duetFromId.values.tolist()))
 print(len(a))
 print(len(b))
 print(a[0])
