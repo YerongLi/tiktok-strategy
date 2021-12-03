@@ -16,12 +16,14 @@ with open('tiktok_data/node.dat', 'w') as f:
     for video in sorted(a.union(b)):
         f.write(f'{video} v\n')
     for music in sorted(set(df['music.title'].values.astype(str).tolist()), key=len):
+        if music != 'original sound'
         f.write(f'{music} m\n')
 
 with open('tiktok_data/link.dat', 'w') as f:
     for i in tqdm.tqdm(range(df.shape[0])):
         f.write(f"{df.iloc[i]['author.uniqueId']} {df.iloc[i].id}\n")
         f.write(f"{df.iloc[i].id} {df.iloc[i]['author.uniqueId']}\n")
-        f.write(f"{df.iloc[i].id} {df.iloc[i]['music.title']}\n")
+        if df.iloc[i]['music.title'] != 'original sound':
+            f.write(f"{df.iloc[i].id} {df.iloc[i]['music.title']}\n")
         if df.iloc[i].duetFromId != 0:
             f.write(f"{df.iloc[i].duetFromId} {df.iloc[i].id}\n")
