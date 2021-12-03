@@ -31,6 +31,7 @@ def simple_dict(tiktok_dict):
       to_return['challenges'] = [{k : challenge[k]} for k in ('id', 'title', 'desc', 'isCommerce')for challenge in tiktok['challenges']]
   else:
       to_return['challenges'] = []
+  print(tiktok_dict['duetFromId'])
   return to_return
 
 items = list()
@@ -51,5 +52,5 @@ with open('videos2.txt') as f:
                 videos_collection.insert_many(items)
 
 # print(items)
-if items:
-    videos_collection.insert_many(items)
+#if items:
+#    videos_collection.insert_many(items)
