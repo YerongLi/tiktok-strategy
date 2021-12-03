@@ -7,12 +7,8 @@ b = set(df.duetFromId.values.tolist())
 b.remove(0)
 
 logging.basicConfig(level=logging.DEBUG)
-logging.debug(f'There are {len(a)} vidoes and {len(b)} dueted videos : {len(a.union(b))} videos in total.')
+logging.info(f'There are {len(a)} vidoes and {len(b)} dueted videos : {len(a.union(b))} videos in total.')
 
-for i in b:
-    if i != 0:
-        print(i)
-        break
 with open('tiktok_data/node.dat', 'w') as f:
     for author in sorted(set(df['author.uniqueId'].values.tolist())):
         f.write(f'{author} a\n')
