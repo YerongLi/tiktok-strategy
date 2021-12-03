@@ -61,9 +61,9 @@ headers = ['author.uniqueId', 'author.id',
 content = []
 with open(f'{args.file}') as f:
     lines = f.readlines()
-    verified_user = set([eval(line)['id'] for line in tqdm.tqdm(lines)])
+    verified_user = set([eval(line)['id'] for line in lines])
 
-for entry in tqdm.tqdm(list(videos_collection.find())):
+for entry in tqdm.tqdm(list(videos_collection.find({'author': {'id': {'$in': list(verified_user)[:3]}}}))):
     dic = simple_dict(dict(entry))
     content.append([dic[k] for k in headers])
 df = pd.DataFrame(columns=headers, data=content)
