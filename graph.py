@@ -15,4 +15,4 @@ with open('tiktok_data/link.dat', 'w') as f:
         f.write(f"{df.iloc[i].id} {df.iloc[i]['author.uniqueId']}\n")
 
 
-with open()
+# with open()
