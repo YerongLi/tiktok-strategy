@@ -4,6 +4,9 @@ import logging
 df = pd.read_csv('videos_dataset.csv')
 a = set(df.id.values.tolist())
 b = set(df.duetFromId.values.tolist())
+print(len(b))
+b.remove(0)
+print(len(b))
 
 logging.basicConfig(level=logging.DEBUG)
 logging.debug(f'There are {len(a)} vidoes and {len(b)} dueted videos : {len(a.union(b))} videos in total.')
@@ -25,4 +28,4 @@ with open('tiktok_data/link.dat', 'w') as f:
         f.write(f"{df.iloc[i]['author.uniqueId']} {df.iloc[i].id}\n")
         f.write(f"{df.iloc[i].id} {df.iloc[i]['author.uniqueId']}\n")
         f.write(f"{df.iloc[i].id} {df.iloc[i]['music.title']}\n")
-        F.write(f"{df.iloc[i].id}")
+        f.write(f"{df.iloc[i].id} ")
