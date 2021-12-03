@@ -67,5 +67,6 @@ for entry in tqdm.tqdm(list(videos_collection.find({'author': {'id': {'$in': ver
     dic = simple_dict(dict(entry))
     content.append([dic[k] for k in headers])
 df = pd.DataFrame(columns=headers, data=content)
+print('finished')
 df.to_csv('videos_dataset.csv', index=False)
 
