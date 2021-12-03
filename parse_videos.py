@@ -42,8 +42,8 @@ items = list()
 cursor = videos_collection.find()
 stored = set([entry['_id'] for entry in cursor])
 def store():
-    # if items:
-    #     videos_collection.insert_many(items)
+    if items:
+        videos_collection.insert_many(items)
     pass
 with open(f'{args.file}') as f:
     lines = f.readlines()
@@ -54,11 +54,8 @@ with open(f'{args.file}') as f:
             context['_id'] = context.pop('id')
             stored.add(context['_id'])
             items.append(context)
-            print(context['duetInfo'].keys())
+            # print(context['duetInfo'].keys())
         except KeyboardInterrupt:
             store()
 
-print(items)
-if items:
-   videos_collection.insert_many(items)
-store
+store()
