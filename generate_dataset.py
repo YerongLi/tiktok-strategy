@@ -2,8 +2,25 @@ import pymongo
 import tqdm
 import pandas as pd
 import argparse
+import logging
 client = pymongo.MongoClient(host='localhost', port=27017)
 db = client.tiktok
+class ColoredLogger(logging.Logger):
+    FORMAT = "[$BOLD%(name)-20s$RESET][%(levelname)-18s]  %(message)s ($BOLD%(filename)s$RESET:%(lineno)d)"
+    COLOR_FORMAT = formatter_message(FORMAT, True)
+    def __init__(self, name):
+        logging.Logger.__init__(self, name, logging.DEBUG)                
+
+        color_formatter = ColoredFormatter(self.COLOR_FORMAT)
+
+        console = logging.StreamHandler()
+        console.setFormatter(color_formatter)
+
+        self.addHandler(console)
+        return
+
+
+logging.setLoggerClass(ColoredLogger)
 
 parser = argparse.ArgumentParser(description='Generate Dataset')
 parser.add_argument('--file', type=str,
@@ -62,13 +79,11 @@ content = []
 with open(f'{args.file}') as f:
     lines = f.readlines()
     verified_user = set([(eval(line)['id']) for line in lines])
-# print()
-print(type(list(verified_user)[0]))
-verified_user = ["6947197656385799174"]
-for entry in tqdm.tqdm(list(videos_collection.find({'author.id': {'$in': list(verified_user)}}))):
+all_videos = list(videos_collection.find({'author.id': {'$in': list(verified_user)}}))
+logging.info(f'There are {len(all_videos)} videos and {len(verified_user)} verified users.')
+for entry in tqdm.tqdm(all_videos):
     dic = simple_dict(dict(entry))
     content.append([dic[k] for k in headers])
 df = pd.DataFrame(columns=headers, data=content)
-print('finished')
 df.to_csv('videos_dataset.csv', index=False)
 
