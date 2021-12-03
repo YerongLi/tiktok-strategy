@@ -64,7 +64,7 @@ with open(f'{args.file}') as f:
     verified_user = set([(eval(line)['id']) for line in lines])
 # print()
 print(type(list(verified_user)[0]))
-verified_user = [6947197656385799174]
+verified_user = ['6947197656385799174']
 for entry in tqdm.tqdm(list(videos_collection.find({'author': {'id': {'$in': list(verified_user)}}}))):
     dic = simple_dict(dict(entry))
     content.append([dic[k] for k in headers])
