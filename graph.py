@@ -7,7 +7,7 @@ a = set(df.id.values.tolist())
 b = set(df.duetFromId.values.tolist())
 b.remove(0)
 
-logging.basicConfig(level=logging.BA)
+logging.basicConfig(level=logging.DEBUG)
 logging.info(f'There are {len(a)} vidoes and {len(b)} dueted videos : {len(a.union(b))} videos in total.')
 
 with open('tiktok_data/node.dat', 'w') as f:
