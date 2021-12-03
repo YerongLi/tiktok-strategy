@@ -17,6 +17,7 @@ with open('tiktok_data/node.dat', 'w') as f:
         f.write(f'{video} v\n')
     for music in sorted(set(df['music.title'].values.astype(str).tolist()), key=len):
         if music != 'original sound':
+            print(music)
             f.write(f'{music.replace(" ", "==")} m\n')
 
 with open('tiktok_data/link.dat', 'w') as f:
