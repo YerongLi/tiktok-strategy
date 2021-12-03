@@ -1,8 +1,12 @@
 import pymongo
 import tqdm
+import argparse
 client = pymongo.MongoClient(host='localhost', port=27017)
 db = client.tiktok
-
+parser = argparse.ArgumentParser(description='Process some integers.')
+parser.add_argument('--file', type=str,
+                    help='Input a raw filename')
+args = parser.parse_args()
 videos_collection = db.videos
 import multiprocessing
 manager = multiprocessing.Manager()
@@ -41,12 +45,12 @@ def store():
     # if items:
     #     videos_collection.insert_many(items)
     pass
-with open('videos2.txt') as f:
+with open(f'{args.file}.txt') as f:
     lines = f.readlines()
     for line in tqdm.tqdm(lines):
         try:
             context = eval(line)
-            # if context['id'] in stored: continue
+            if context['id'] in stored: continue
             context['_id'] = context.pop('id')
             stored.add(context['_id'])
             items.append(context)
@@ -54,7 +58,7 @@ with open('videos2.txt') as f:
         except KeyboardInterrupt:
             store()
 
-# print(items)
-#if items:
-#    videos_collection.insert_many(items)
+print(items)
+if items:
+   videos_collection.insert_many(items)
 store
