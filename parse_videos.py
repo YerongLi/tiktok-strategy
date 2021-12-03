@@ -50,7 +50,7 @@ with open('videos2.txt') as f:
             context['_id'] = context.pop('id')
             stored.add(context['_id'])
             items.append(context)
-            print(context['duetInfo']['duetFromId'])
+            print(context['duetInfo'].keys())
         except KeyboardInterrupt:
             store()
 
