@@ -1,8 +1,14 @@
 import pymongo
 import tqdm
 import pandas as pd
+import argparse
 client = pymongo.MongoClient(host='localhost', port=27017)
 db = client.tiktok
+
+parser = argparse.ArgumentParser(description='Generate Dataset')
+parser.add_argument('--file', type=str,
+                    help='Input a dump of verified users e.g. verified_users.txt')
+args = parser.parse_args()
 
 videos_collection = db.videos
 import multiprocessing
@@ -52,8 +58,12 @@ headers = ['author.uniqueId', 'author.id',
         'music.title',
         ]
 
-content = [] 
-for entry in videos_collection.find():
+content = []
+with open(f'{args.file}') as f:
+    lines = f.readlines()
+    verified_user = set([eval(line)['id'] for line in tqdm.tqdm(lines)])
+
+for entry in videos_collection.find({'author': {'id': {'$in': verified_user}}}):
     dic = simple_dict(dict(entry))
     content.append([dic[k] for k in headers])
 df = pd.DataFrame(columns=headers, data=content)

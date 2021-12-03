@@ -4,9 +4,9 @@ import argparse
 ##TODO add multipprocessing
 client = pymongo.MongoClient(host='localhost', port=27017)
 db = client.tiktok
-parser = argparse.ArgumentParser(description='Process some integers.')
+parser = argparse.ArgumentParser(description='Process scrapped raw data')
 parser.add_argument('--file', type=str,
-                    help='Input a raw filename')
+                    help='Input a raw filename e.g. videos5.txt')
 args = parser.parse_args()
 videos_collection = db.videos
 import multiprocessing
