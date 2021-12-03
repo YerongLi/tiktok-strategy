@@ -2,8 +2,8 @@ import pandas as pd
 import logging
 
 df = pd.read_csv('videos_dataset.csv')
-a = set(df.id.values.tolist()))
-b = set(df.duetFromId.values.tolist()))
+a = set(df.id.values.tolist())
+b = set(df.duetFromId.values.tolist())
 
 logging.basicConfig(level=logging.DEBUG)
 logging.debug(f'There are {len(a)} vidoes and {len(b)} dueted videos : {len(len(a.union(b)))} videos in total.')
