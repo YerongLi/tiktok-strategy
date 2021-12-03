@@ -1,6 +1,7 @@
 import pymongo
 import tqdm
 import argparse
+##TODO add multipprocessing
 client = pymongo.MongoClient(host='localhost', port=27017)
 db = client.tiktok
 parser = argparse.ArgumentParser(description='Process some integers.')
