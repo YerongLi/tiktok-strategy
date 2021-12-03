@@ -1,6 +1,11 @@
 import pandas as pd
 df = pd.read_csv('videos_dataset.csv')
-
+a = list(set(df.id.values.tolist())))
+b = list(set(df..values.tolist()))))
+print(len(a))
+print(len(b))
+print(a[0])
+print(b[0])
 with open('tiktok_data/node.dat', 'w') as f:
     for author in sorted(set(df['author.uniqueId'].values.tolist())):
         f.write(f'{author} a\n')
