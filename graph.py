@@ -25,6 +25,6 @@ with open('tiktok_data/link.dat', 'w') as f:
         f.write(f"{df.iloc[i]['author.id']} {df.iloc[i].id}\n")
         f.write(f"{df.iloc[i].id} {df.iloc[i]['author.id']}\n")
         if df.iloc[i]['music.title'] != 'original sound':
-            f.write(f"{df.iloc[i]['music.title'].astype(str).replace(' ', '==')} {df.iloc[i].id}\n")
+            f.write(f"{str(df.iloc[i]['music.title']).replace(' ', '==')} {df.iloc[i].id}\n")
         if df.iloc[i].duetFromId != 0:
             f.write(f"{df.iloc[i].duetFromId} {df.iloc[i].id}\n")
