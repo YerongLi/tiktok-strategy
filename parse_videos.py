@@ -56,6 +56,6 @@ with open(f'{args.file}') as f:
             items.append(context)
             # print(context['duetInfo'].keys())
         except KeyboardInterrupt:
-            store()
+            break
 
 store()
