@@ -57,6 +57,7 @@ class ColoredLogger(logging.Logger):
 
 
 logging.setLoggerClass(ColoredLogger)
+logging.basicConfig(level=logging.DEBUG)
 
 parser = argparse.ArgumentParser(description='Generate Dataset')
 parser.add_argument('--file', type=str,
@@ -116,6 +117,7 @@ with open(f'{args.file}') as f:
     lines = f.readlines()
     verified_user = set([(eval(line)['id']) for line in lines])
 all_videos = list(videos_collection.find({'author.id': {'$in': list(verified_user)}}))
+
 logging.info(f'There are {len(all_videos)} videos and {len(verified_user)} verified users.')
 for entry in tqdm.tqdm(all_videos):
     dic = simple_dict(dict(entry))
