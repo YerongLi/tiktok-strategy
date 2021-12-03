@@ -57,7 +57,7 @@ class ColoredLogger(logging.Logger):
 
 
 logging.setLoggerClass(ColoredLogger)
-logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.INFO)
 
 parser = argparse.ArgumentParser(description='Generate Dataset')
 parser.add_argument('--file', type=str,
