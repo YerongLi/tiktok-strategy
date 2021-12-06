@@ -117,7 +117,7 @@ content = []
 with open(f'{args.file}') as f:
     lines = f.readlines()
     verified_user = set([(eval(line)['id']) for line in lines])
-verfified_user = verified_user[:10]
+verfified_user = list(verified_user)[:10]
 
 all_videos = list(videos_collection.find({'author.id': {'$in': list(verified_user)}}))
 
