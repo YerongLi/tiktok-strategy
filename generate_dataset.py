@@ -4,6 +4,7 @@ import pandas as pd
 import argparse
 import logging
 client = pymongo.MongoClient(host='localhost', port=27017)
+import time
 db = client.tiktok
 
 BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE = range(8)
@@ -74,7 +75,7 @@ def simple_dict(tiktok_dict):
   to_return['author.id'] = tiktok_dict['author']['id']
   to_return['id'] = tiktok_dict['_id']
   to_return['desc'] = tiktok_dict['desc']
-  to_return['createTime'] = tiktok_dict['createTime']
+  to_return['createTime'] = time.strftime("%B %d %Y", str(tiktok_dict['createTime']))
   to_return['videoduration'] = tiktok_dict['video']['duration']
   to_return['link'] = 'https://www.tiktok.com/@{}/video/{}?lang=en'.format(to_return['author.uniqueId'], to_return['id'])
   to_return['likes'] = tiktok_dict['stats']['diggCount']
@@ -119,7 +120,7 @@ with open(f'{args.file}') as f:
 all_videos = list(videos_collection.find({'author.id': {'$in': list(verified_user)}}))
 
 logging.info(f'There are {len(all_videos)} videos and {len(verified_user)} verified users.')
-for entry in tqdm.tqdm(all_videos):
+for entry in tqdm.tqdm(all_videos[:10]):
     dic = simple_dict(dict(entry))
     content.append([dic[k] for k in headers])
 df = pd.DataFrame(columns=headers, data=content)
