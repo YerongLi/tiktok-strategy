@@ -4,7 +4,7 @@ import pandas as pd
 import argparse
 import logging
 client = pymongo.MongoClient(host='localhost', port=27017)
-import time
+from datetime import datetime
 db = client.tiktok
 
 BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE = range(8)
@@ -75,7 +75,7 @@ def simple_dict(tiktok_dict):
   to_return['author.id'] = tiktok_dict['author']['id']
   to_return['id'] = tiktok_dict['_id']
   to_return['desc'] = tiktok_dict['desc']
-  to_return['createTime'] = time.strftime("%B %d %Y", str(tiktok_dict['createTime']))
+  to_return['createTime'] = datetime.utcfromtimestamp(tiktok_dict['createTime']).strftime('%Y-%m-%d %H:%M:%S')
   to_return['videoduration'] = tiktok_dict['video']['duration']
   to_return['link'] = 'https://www.tiktok.com/@{}/video/{}?lang=en'.format(to_return['author.uniqueId'], to_return['id'])
   to_return['likes'] = tiktok_dict['stats']['diggCount']
