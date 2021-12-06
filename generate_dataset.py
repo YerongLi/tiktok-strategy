@@ -117,10 +117,12 @@ content = []
 with open(f'{args.file}') as f:
     lines = f.readlines()
     verified_user = set([(eval(line)['id']) for line in lines])
+verfified_user = verified_user[:10]
+
 all_videos = list(videos_collection.find({'author.id': {'$in': list(verified_user)}}))
 
 logging.info(f'There are {len(all_videos)} videos and {len(verified_user)} verified users.')
-for entry in tqdm.tqdm(all_videos[:10]):
+for entry in tqdm.tqdm(all_videos):
     dic = simple_dict(dict(entry))
     content.append([dic[k] for k in headers])
 df = pd.DataFrame(columns=headers, data=content)
