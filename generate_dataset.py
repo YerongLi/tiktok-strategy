@@ -121,10 +121,15 @@ with open(f'{args.file}') as f:
 
 all_videos = list(videos_collection.find({'author.id': {'$in': list(verified_user)}}))
 
+countDuet = 0
 logging.info(f'There are {len(all_videos)} videos and {len(verified_user)} verified users.')
 for entry in tqdm.tqdm(all_videos):
     dic = simple_dict(dict(entry))
+    if dic['duetFromId'] != 0:
+        countDuet+= 1
     content.append([dic[k] for k in headers])
+logging.info(f'There are {countDuet} dueted videos in total.')
+
 df = pd.DataFrame(columns=headers, data=content)
 df.to_csv('videos_dataset.csv', index=False)
 
