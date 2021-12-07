@@ -125,7 +125,7 @@ countDuet = 0
 logging.info(f'There are {len(all_videos)} videos and {len(verified_user)} verified users.')
 for entry in tqdm.tqdm(all_videos):
     dic = simple_dict(dict(entry))
-    print(print(dic['duetFromId'], type(dic['duetFromId']), dic['duetFromId'] != None and dic['duetFromId'] != '0'))
+    print(dic['duetFromId'], type(dic['duetFromId']), dic['duetFromId'] != None and dic['duetFromId'] != '0')
     if dic['duetFromId'] != None and dic['duetFromId'] != '0':
         countDuet+= 1
     content.append([dic[k] for k in headers])
