@@ -18,3 +18,6 @@ For testing, run
     bash gen-arg/src/genie/test_kairos.sh 
  
 Our customized event templates with role description is here: bartgen/gen-arg/event_role_KAIROS.json
+
+
+Models and predictions can be downloaded from this folder: https://drive.google.com/drive/folders/1W9NjpE87Egh7tdb4zlBr1CEErJhmvjKi?usp=sharing
